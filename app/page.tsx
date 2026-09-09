@@ -87,7 +87,8 @@ export default function Page() {
     setQueryGuest(params.get('guest') ?? '')
   }, [])
 
-  const guestNameFromPath = isAllowedHost && pathname !== '/' ? decodeURIComponent(pathname.split('/').filter(Boolean)[0] || '') : ''
+  const normalizedPathname = pathname.startsWith(basePath) ? pathname.slice(basePath.length) || '/' : pathname
+  const guestNameFromPath = isAllowedHost && normalizedPathname !== '/' ? decodeURIComponent(normalizedPathname.split('/').filter(Boolean)[0] || '') : ''
   const guestName = queryGuest || guestNameFromPath || ''
   const isPersonalized = Boolean(guestName)
   const backEnvelopeAsset = isPersonalized ? assets.blankBackEnvelope : assets.backEnvelope
@@ -127,7 +128,7 @@ export default function Page() {
   return (
     <main className={`invitation-app stage-${stage}`} dir="rtl">
       <audio ref={audioRef} loop preload="metadata" playsInline aria-hidden="true">
-        <source src="/assets/song.mp3" type="audio/mpeg" />
+        <source src={publicAsset('song.mp3')} type="audio/mpeg" />
       </audio>
 
       <div className="flower-field" aria-hidden="true">
