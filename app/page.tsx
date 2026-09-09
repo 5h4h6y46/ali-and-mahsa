@@ -87,8 +87,7 @@ export default function Page() {
     setQueryGuest(params.get('guest') ?? '')
   }, [])
 
-  const normalizedPathname = pathname.startsWith(basePath) ? pathname.slice(basePath.length) || '/' : pathname
-  const guestNameFromPath = isAllowedHost && normalizedPathname !== '/' ? decodeURIComponent(normalizedPathname.split('/').filter(Boolean)[0] || '') : ''
+  const guestNameFromPath = isAllowedHost && pathname !== '/' ? decodeURIComponent(pathname.split('/').filter(Boolean)[0] || '') : ''
   const guestName = queryGuest || guestNameFromPath || ''
   const isPersonalized = Boolean(guestName)
   const backEnvelopeAsset = isPersonalized ? assets.blankBackEnvelope : assets.backEnvelope
