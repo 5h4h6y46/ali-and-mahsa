@@ -3,6 +3,7 @@ const repoBasePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 const nextConfig = {
   output: 'export',
+  distDir: 'out',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   typescript: {
