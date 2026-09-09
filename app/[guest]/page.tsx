@@ -1,4 +1,9 @@
 import type { Metadata } from 'next'
+import Page from '../page'
+
+export function generateStaticParams() {
+  return [{ guest: 'mamad' }, { guest: 'mamd' }]
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ guest: string }> }): Promise<Metadata> {
   const { guest } = await params
@@ -30,4 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ guest: st
   }
 }
 
-export { default } from '../page'
+export default function GuestPage() {
+  return <Page />
+}

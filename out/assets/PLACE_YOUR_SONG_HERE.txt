@@ -1,0 +1,10 @@
+Please place your wedding song file here with the name: wedding-song.mp3
+
+Supported formats:
+- MP3 (recommended)
+- WAV
+- OGG
+
+The song will auto-play when users interact with the invitation.
+
+Tip: Choose a romantic song that represents your love story!
