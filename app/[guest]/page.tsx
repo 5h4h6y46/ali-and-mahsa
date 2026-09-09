@@ -4,7 +4,7 @@ import Page from '../page'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://5h4h6y46.github.io/ali-and-mahsa'
 
 export function generateStaticParams() {
-  return [{ guest: 'mamad' }, { guest: 'mamd' }]
+  return [{ guest: 'al' }, { guest: 'ali' }, { guest: 'mamad' }, { guest: 'mamd' }, { guest: 'mahsa' }]
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ guest: string }> }): Promise<Metadata> {

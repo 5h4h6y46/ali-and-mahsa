@@ -79,7 +79,16 @@ export default function Page() {
     hostname === 'ali-and-mahsa.noghteh.site' ||
     hostname === 'localhost' ||
     hostname === '127.0.0.1'
-  const guestName = isAllowedHost && pathname !== '/' ? decodeURIComponent(pathname.split('/').filter(Boolean)[0] || '') : ''
+  const [queryGuest, setQueryGuest] = useState('')
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const params = new URLSearchParams(window.location.search)
+    setQueryGuest(params.get('guest') ?? '')
+  }, [])
+
+  const guestNameFromPath = isAllowedHost && pathname !== '/' ? decodeURIComponent(pathname.split('/').filter(Boolean)[0] || '') : ''
+  const guestName = queryGuest || guestNameFromPath || ''
   const isPersonalized = Boolean(guestName)
   const backEnvelopeAsset = isPersonalized ? assets.blankBackEnvelope : assets.backEnvelope
   const envelopeGuestText = guestName ? `جناب ${guestName} شما و خانواده محترمتان را به این جشن دعوت مینماییم` : ''
