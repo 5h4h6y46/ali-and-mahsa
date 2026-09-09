@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Page from '../page'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://5h4h6y46.github.io/ali-and-mahsa'
+
 export function generateStaticParams() {
   return [{ guest: 'mamad' }, { guest: 'mamd' }]
 }
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ guest: st
       locale: 'fa_IR',
       images: [
         {
-          url: '/assets/close front envelop.png',
+          url: `${siteUrl}/assets/close%20front%20envelop.png`,
           width: 1200,
           height: 800,
           alt: `دعوت‌نامه ${guestName}`,
@@ -30,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ guest: st
       card: 'summary_large_image',
       title: `دعوت‌نامه ${guestName} | A & M`,
       description: `جناب ${guestName} شما و خانواده محترمتان را به این جشن دعوت مینماییم`,
-      images: ['/assets/close front envelop.png'],
+      images: [`${siteUrl}/assets/close%20front%20envelop.png`],
     },
   }
 }

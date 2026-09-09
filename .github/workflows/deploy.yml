@@ -34,6 +34,7 @@ jobs:
         env:
           NODE_ENV: production
           NEXT_PUBLIC_BASE_PATH: /ali-and-mahsa
+          NEXT_PUBLIC_SITE_URL: https://5h4h6y46.github.io/ali-and-mahsa
         run: npm run build
 
       - name: Add .nojekyll

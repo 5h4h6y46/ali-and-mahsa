@@ -3,7 +3,8 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
-const publicAsset = (fileName: string) => `/assets/${encodeURIComponent(fileName)}`
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+const publicAsset = (fileName: string) => `${basePath}/assets/${encodeURIComponent(fileName)}`
 
 const assets = {
   backEnvelope: publicAsset('close back of envelop with writng.png'),

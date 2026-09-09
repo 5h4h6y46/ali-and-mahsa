@@ -2,8 +2,10 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://5h4h6y46.github.io/ali-and-mahsa'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ali-and-mahsa.noghteh.site'),
+  metadataBase: new URL(siteUrl),
   title: 'دعوت‌نامه عروسی | A & M',
   description: 'دعوت‌نامه دیجیتال جشن آغاز زندگی مشترک A و M',
   generator: 'v0.app',
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
     locale: 'fa_IR',
     images: [
       {
-        url: '/assets/close front envelop.png',
+        url: `${siteUrl}/assets/close%20front%20envelop.png`,
         width: 1200,
         height: 800,
         alt: 'دعوت‌نامه عروسی A و M',
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'دعوت‌نامه عروسی | A & M',
     description: 'شما و خانواده محترمتان را به این جشن دعوت مینماییم',
-    images: ['/assets/close front envelop.png'],
+    images: [`${siteUrl}/assets/close%20front%20envelop.png`],
   },
 }
 
