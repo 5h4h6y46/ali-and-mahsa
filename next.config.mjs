@@ -14,6 +14,8 @@ const nextConfig = {
   },
   basePath: repoBasePath,
   assetPrefix: repoBasePath ? `${repoBasePath}/` : '',
+  swcMinify: true,
+  productionBrowserSourceMaps: false,
 }
 
 export default nextConfig
